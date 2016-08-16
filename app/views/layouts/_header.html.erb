@@ -1,0 +1,21 @@
+<% if current_user %>
+<div class="navbar-fixed">
+    <nav>
+      <ul class="nav-wrapper">
+        <li><%= link_to "HouseStat", root_path %></li>
+        <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+      </ul>
+    </nav>
+</div>
+
+<%else%>
+  <div class="navbar-fixed">
+    <nav>
+      <ul class="nav-wrapper">
+        <li><%= link_to "HouseStat", root_path %></li>
+        <li><%= link_to "Login", 'login' %></a></li>
+        <li><%= link_to "Signup", 'signup' %></a></li>
+      </ul>
+    </nav>
+</div>
+<%end%>

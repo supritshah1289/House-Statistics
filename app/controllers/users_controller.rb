@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-
 =begin
   create action saves data to database. creates new session. redirects to home page
 
@@ -21,8 +20,6 @@ class UsersController < ApplicationController
       redirect_to '/signup'
     end
   end
-
-
 
   #write all the private methods below
 
