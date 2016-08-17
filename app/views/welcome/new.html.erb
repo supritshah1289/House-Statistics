@@ -1,10 +1,102 @@
 <main>
   <% if current_user %>
+  <div class="container">
   <h2>Welcome <%= current_user.first_name%></h2>
+  <p>Find out details about house you want to buy.</p>
+  </div>
+
+  <div class="container">
+  <div class="row">
+    <div class="col s12">
+      <div class="col s6">
+    <div class="row">
+    <div class="input-field col s6">
+          <input id="address" placeholder="Address" type="text" class="validate" required="">
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="input-field col s6">
+          <input id="city" placeholder="City" type="text" class="validate" required="">
+   </div>
+   </div>
+
+   <div class="row">
+   <div class="input-field col s6">
+          <input id="state" placeholder="State NJ, NY, CT" type="text" class="validate" required>
+   </div>
+   </div>
+
+   <div class="row">
+   <div class="input-field col s6">
+          <input id="zip" placeholder="zip" type="number" class="validate" required="">
+   </div>
+   </div>
+    <a class="waves-effect waves-light btn" id="search-house">Search</a>
+  </div>
+
+  <!-- append user search data -->
+  <div class="container">
+     <div id="house-stat">
+
+     </div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
 </main>
+
+
 <%else%>
 <main>
+  <div class="container">
   <h2>Welcome Guest</h2>
+  <p>Find out details about house you want to buy.</p>
+  </div>
+
+  <div class="container">
+  <div class="row">
+    <div class="col s12">
+      <div class="col s6">
+    <div class="row">
+    <div class="input-field col s6">
+          <input id="address" placeholder="Address" type="text" class="validate" required="">
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="input-field col s6">
+          <input id="city" placeholder="City" type="text" class="validate" required="">
+   </div>
+   </div>
+
+   <div class="row">
+   <div class="input-field col s6">
+          <input id="state" placeholder="State NJ, NY, CT" type="text" class="validate" required>
+   </div>
+   </div>
+
+   <div class="row">
+   <div class="input-field col s6">
+          <input id="zip" placeholder="zip" type="number" class="validate" required="">
+   </div>
+   </div>
+    <a class="waves-effect waves-light btn" id="search-house">Search</a>
+  </div>
+
+  <!-- append user search data -->
+  <div class="container">
+     <div id="house-stat">
+
+     </div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
 </main>
 
 <%end%>
