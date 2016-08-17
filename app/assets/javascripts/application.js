@@ -185,6 +185,6 @@ $(document).on('turbolinks:load', function() {
   console.log("Connected")
   getGuestSearch()
   getUserSearch()
-  $('#addme').on('click', addHouse)
+
 
 });
