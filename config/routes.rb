@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#new'
   get '/houses' => 'houses#new'
+  get '/myhouses' => 'houses#index'
 
   get 'signup' => 'users#new'
   resources :users
@@ -9,9 +10,9 @@ Rails.application.routes.draw do
   post    'login'   => 'sessions#create'
   delete  'logout'  => 'sessions#destroy'
 
+  post   'houses'   => 'houses#create'
+  delete 'houses'   => 'houses#destroy'
 
-  # get 'users/new'
-  # get 'users/create'
 
 
 

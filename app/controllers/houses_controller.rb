@@ -18,6 +18,29 @@ class HousesController < ApplicationController
   end
 
 
+  def index
+    @houses = House.find_by(:user_id => current_user.id)
+  end
+
+  def create
+    @house = House.new(house_params.merge(user_id: current_user.id))
+    if @house.save
+        flash[:success] = "House added!"
+        redirect_to root_url
+    else
+      head 422
+    end
+  end
+
+
+  def destroy
+
+  end
+
+  private
+  def house_params
+    params.require(:house).permit(:address, :type, :built, :sqft, :last_sold_date, :last_sold_price, :tax_assessment_year, :tax_assessment)
+  end
 
 end
 
