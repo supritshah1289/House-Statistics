@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20160817011431) do
 
   create_table "houses", force: :cascade do |t|
     t.string   "address"
-    t.string   "type"
+    t.string   "house_type"
     t.string   "built"
     t.string   "sqft"
     t.string   "last_sold_date"

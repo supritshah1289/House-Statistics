@@ -19,10 +19,12 @@ class HousesController < ApplicationController
 
 
   def index
-    @houses = House.find_by(:user_id => current_user.id)
+    @houses = House.where(:user_id => current_user.id)
   end
 
   def create
+    puts current_user.id
+
     @house = House.new(house_params.merge(user_id: current_user.id))
     if @house.save
         flash[:success] = "House added!"
@@ -34,12 +36,13 @@ class HousesController < ApplicationController
 
 
   def destroy
-
+     @house = House.find(params[:id])
+     @house.destroy if @house.user_id == current_user.id
   end
 
   private
   def house_params
-    params.require(:house).permit(:address, :type, :built, :sqft, :last_sold_date, :last_sold_price, :tax_assessment_year, :tax_assessment)
+    params.permit(:address, :house_type, :built, :sqft, :last_sold_date, :last_sold_price, :tax_assessment_year, :tax_assessment)
   end
 
 end

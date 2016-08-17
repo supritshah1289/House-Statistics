@@ -143,41 +143,65 @@ function getGuestSearch(){
       // console.log(house["SearchResults:searchresults"].request.address)
                 console.log(house)
                 renderHouseGuest(house["SearchResults:searchresults"])
+
         })
+    // .complete(addHouse())
   })
 }
 
 
-// function addHouse(){
-//   // $('#addme').on('click', function(){
-//     console.log('Clicked')
-//     let $address            = $('#houseaddress').text()
-//     let $useCode            = $('#useCode').text()
-//     let $yearBuilt          = $('#yearBuilt').text()
-//     let $lotSizeSqFt        = $('#lotSizeSqFt').text()
-//     let $lastSoldDate       = $('#lastSoldDate').text()
-//     let $lastSoldPrice      = $('#lastSoldPrice').text()
-//     let $taxAssessmentYear  = $('#taxAssessmentYear').text()
-//     let $taxAssessment      = $('#taxAssessment').text()
+function addHouse(){
+    console.log('Clicked')
+    let $address            = $('#houseaddress').text()
+    let $useCode            = $('#useCode').text()
+    let $yearBuilt          = $('#yearBuilt').text()
+    let $lotSizeSqFt        = $('#lotSizeSqFt').text()
+    let $lastSoldDate       = $('#lastSoldDate').text()
+    let $lastSoldPrice      = $('#lastSoldPrice').text()
+    let $taxAssessmentYear  = $('#taxAssessmentYear').text()
+    let $taxAssessment      = $('#taxAssessment').text()
 
-//     console.log($address, $useCode, $yearBuilt, $lotSizeSqFt, $lastSoldDate, $lastSoldPrice, $taxAssessmentYear, $taxAssessment)
+    console.log($address, $useCode, $yearBuilt, $lotSizeSqFt, $lastSoldDate, $lastSoldPrice, $taxAssessmentYear, $taxAssessment)
 
-//     let house = {
-//       'address': $address,
-//       'type': $useCode,
-//       'built': $yearBuilt,
-//       'sqft' : $lotSizeSqFt,
-//       'last_sold_date': $lastSoldDate,
-//       'last_sold_price': $lastSoldPrice,
-//       'tax_assessment_year': $taxAssessmentYear,
-//       'tax_assessment': $taxAssessment
-//     }
-//     $.post('/houses',house, function(data){
-//       console.log(data)
-//     });
+    let house = {
+      'address': $address,
+      'type': $useCode,
+      'built': $yearBuilt,
+      'sqft' : $lotSizeSqFt,
+      'last_sold_date': $lastSoldDate,
+      'last_sold_price': $lastSoldPrice,
+      'tax_assessment_year': $taxAssessmentYear,
+      'tax_assessment': $taxAssessment
+    }
 
-//   // })
-// }
+    $.post('/houses',house, function(data){
+      console.log(data)
+    });
+}
+
+function deleteHouse(e){
+  var $target = $(e.target)
+  var $id     = $target.attr('data-house-id')
+  var $url = '/houses/'+$id
+  console.log($id)
+  $.ajax({
+    url: $url,
+    type: 'delete'
+  })
+  .done(function() {
+    console.log("success");
+    $target.closest('.row').remove()
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+
+
+}//delete close
+
 
 
 
@@ -185,6 +209,7 @@ $(document).on('turbolinks:load', function() {
   console.log("Connected")
   getGuestSearch()
   getUserSearch()
-
+  $('#house-stat').on('click','#addme',addHouse)
+  $('.delete-house').on('click', deleteHouse)
 
 });

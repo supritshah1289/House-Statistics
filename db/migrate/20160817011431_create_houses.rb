@@ -2,7 +2,7 @@ class CreateHouses < ActiveRecord::Migration[5.0]
   def change
     create_table :houses do |t|
       t.string :address
-      t.string :type
+      t.string :house_type
       t.string :built
       t.string :sqft
       t.string :last_sold_date
