@@ -1,7 +1,7 @@
 # House Stats
 The application is developed using Ruby on Rails. Weather if you're buying your first house or second using simple address input we will show you details of the house. Some of the information inludes when was the house built, total sqft, tax assessment year, tax assessment etc. 
 
-
+Application curently supports houses only.
 
 #User stories
 * Guest can search for detail information about any house. 
